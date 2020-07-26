@@ -1,0 +1,1 @@
+export { convertTextToSpans } from './convertTextToSpans'

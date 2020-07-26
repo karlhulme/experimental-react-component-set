@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const ServiceNameContainer = styled.div`
@@ -12,9 +13,9 @@ const ServiceVersionContainer = styled.div`
 
 export function HomeLink ({ homeUrl, serviceName, serviceVersion }) {
   return (
-    <a href={homeUrl}>
+    <Link to={homeUrl}>
       <ServiceNameContainer>{serviceName}</ServiceNameContainer>
       <ServiceVersionContainer>Version: {serviceVersion}</ServiceVersionContainer>
-    </a>
+    </Link>
   )
 }

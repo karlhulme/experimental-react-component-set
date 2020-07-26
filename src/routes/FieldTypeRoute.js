@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
-import { Heading, JsonViewStyled, PageHeading, PageOverview, Para, SubHeading, VSpacer } from '../widgets'
+import {
+  DeprecatedBadge, Heading, InlineCode, InlineExternalLink, InlineLink,
+  JsonViewStyled, LinkCollection, Note, PageHeading,
+  PageOverview, Para
+} from '../widgets'
+import { convertTextToSpans } from '../paragraphFormatting'
 
 const Table = styled.table`
   border-bottom: 1px solid grey;
@@ -25,50 +30,63 @@ const Cell = styled.td`
   padding: 0.5rem;
 `
 
-// show the below is category=system in a warning box.
-// 'This field type is used by the system for one or more of the standard fields that appears on all documents.  It\'s unlikely that you\'ll need to supply values that adhere to this type.'
+export function FieldTypeRoute ({ resources }) {
+  const { lang, fieldTypeName } = useParams()
+  const fieldType = resources.fieldTypes.find(f => f.name === fieldTypeName)
 
-export function FieldTypeRoute ({ fieldTypes }) {
-  const { fieldTypeName } = useParams()
-  const fieldType = fieldTypes.find(ft => ft.name === fieldTypeName)
+  const showSystemSection = fieldType.category === 'system'
+
+  const showValues = fieldType.type === 'enum' && Array.isArray(fieldType.values)
+  const showSymbols = showValues && Boolean(fieldType.values.find(v => v.symbol))
+  const showDeprecationSection = showValues && Boolean(fieldType.values.find(v => v.deprecated))
+  const showReferences = fieldType.referencedFieldTypes.length > 0
 
   return (
     <>
       <PageHeading text={fieldType.title} />
       <PageOverview>This page describes the <strong>{fieldType.name}</strong> field type.</PageOverview>
-      <Para>{fieldType.description}</Para>
 
-      {fieldType.docExamples && fieldType.docExamples.length > 0 &&
-        <>
-          <VSpacer size={1} />
-          <Heading text='Example Usage' />
-          <JsonViewStyled obj={{ [fieldType.name + 'Field']: fieldType.docExamples[0] }} />
-        </>}
+      {fieldType.paragraphs.map((p, index) =>
+        <Para key={index}>{convertTextToSpans(p, resources.fieldTypes, lang, InlineCode, InlineLink, InlineExternalLink)}</Para>)}
 
-      {fieldType.values && fieldType.values.length > 0 &&
+      {showSystemSection &&
+        <Note>
+          <Para>This field type is used by the system for one or more of the standard fields that appear on all documents.</Para>
+        </Note>}
+
+      {fieldType.examples.length > 0 &&
         <>
-          <VSpacer size={1} />
-          <Heading text='Example Usage' />
-          <SubHeading text='Example 1' />
-          <Para>Notice in this example how the result is assigned without quotations.</Para>
-          <JsonViewStyled obj={{ id: '00000000-0000-0000-0000-000000000001', docType: 'example', [fieldType.name + 'Field']: fieldType.values[0].value }} />
+          <Heading text={fieldType.examples.length > 1 ? 'Examples' : 'Example'} />
+          {fieldType.examples.map((e, index) => (
+            <>
+              {Array.isArray(e.paragraphs) && e.paragraphs.length > 0 && e.paragraphs.map(p =>
+                <Para key={index}>{convertTextToSpans(p, resources.fieldTypes, lang, InlineCode, InlineLink, InlineExternalLink)}</Para>)}
+              <JsonViewStyled
+                key={index}
+                obj={{
+                  id: `00000000-0000-0000-0000-00000000000${index + 1}`,
+                  docType: 'example',
+                  [fieldType.name + 'Field']: e.value
+                }}
+              />
+            </>
+          ))}
         </>}
 
       {fieldType.jsonSchema &&
         <>
-          <VSpacer size={1} />
           <Heading text='Field Schema' />
-          <JsonViewStyled obj={typeof fieldType.jsonSchema === 'function' ? fieldType.jsonSchema('#/defs/') : fieldType.jsonSchema} showLineNumbers />
+          <JsonViewStyled obj={fieldType.jsonSchema} showLineNumbers />
         </>}
 
-      {fieldType.values &&
+      {fieldType.values && fieldType.values.length > 0 &&
         <>
-          <VSpacer size={1} />
           <Heading text='Values' />
           <Table>
             <thead>
               <HeaderRow>
                 <HeaderCell>Value</HeaderCell>
+                {showSymbols && <HeaderCell>Symbol</HeaderCell>}
                 <HeaderCell>Description</HeaderCell>
               </HeaderRow>
             </thead>
@@ -76,11 +94,30 @@ export function FieldTypeRoute ({ fieldTypes }) {
               {fieldType.values.map(v => (
                 <Row key={v.value}>
                   <Cell>{v.value.toString()}</Cell>
-                  <Cell>{v.description}</Cell>
+                  {showSymbols && <Cell>{v.symbol}</Cell>}
+                  <Cell>
+                    {v.text}
+                    {v.deprecated && <>&nbsp;<DeprecatedBadge /></>}
+                  </Cell>
                 </Row>
               ))}
             </tbody>
           </Table>
+        </>}
+
+      {showDeprecationSection &&
+        <>
+          <Heading text='Deprecation' />
+          <Para>Some of the values in this enumeration are marked as <DeprecatedBadge />.</Para>
+          <Para>Existing values should be displayed but users should be discouraged from recording deprecated values in new records.</Para>
+        </>}
+
+      {showReferences &&
+        <>
+          <Heading text='Referenced Field Types' />
+          <LinkCollection links={fieldType.referencedFieldTypes.map(r =>
+            ({ title: r.title, url: `/${lang}/field-types/${r.name}` }))}
+          />
         </>}
     </>
   )

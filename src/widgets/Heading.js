@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { tablet, desktop, widescreen } from './formFactorSizes'
 
 export const Container = styled.h2`
+  margin-top: 2rem;
   font-size: 1.2rem;
 
   @media (min-width: ${tablet}px) {

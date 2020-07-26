@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { InlineLink } from './InlineLink'
 
 export default {
@@ -7,5 +7,5 @@ export default {
   component: InlineLink
 }
 
-export const withTextAndUrl = () => <Router><InlineLink text='Example' url='https://example.org' /></Router>
-export const withUndefineds = () => <Router><InlineLink /></Router>
+export const withTextAndUrl = () => <BrowserRouter><InlineLink text='Example' url='https://example.org' /></BrowserRouter>
+export const withUndefineds = () => <BrowserRouter><InlineLink /></BrowserRouter>

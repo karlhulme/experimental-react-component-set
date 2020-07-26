@@ -2,10 +2,10 @@
 
 A collection of react components for constructing API documentation for your configured Jsonotron engine.
 
-## Components TODO
+Mulit-language is supported.
 
-Panel
-Panel header
-Panel body
-Multi-column layout thing (to go in the panel body, where columns drop below if insufficient h-space)
-field-type-selection-panel (that combines all of the above)
+## Scripts
+
+`npm test`
+`npm run storybook`
+`npm start`

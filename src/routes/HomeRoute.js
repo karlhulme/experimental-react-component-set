@@ -1,7 +1,24 @@
 import React from 'react'
-import { GroupedLinksView, Heading, PageHeading, PageOverview, Para, VSpacer } from '../widgets'
+import { useParams } from 'react-router-dom'
+import { GroupedLinksView, Heading, PageHeading, PageOverview, Para, SubHeading, LinkCollection } from '../widgets'
 
-export function HomeRoute ({ docTypes, fieldTypes }) {
+function CategorySection ({ resources, categoryName, lang }) {
+  const fieldTypesInCategory = resources.fieldTypes.filter(f => f.category === categoryName)
+
+  const links = fieldTypesInCategory.map(f =>
+    ({ title: f.title, url: `/${lang}/field-types/${f.name}` }))
+
+  return (
+    <>
+      <SubHeading text={resources.categories.find(c => c.name === categoryName).title} />
+      <LinkCollection links={links} />
+    </>
+  )
+}
+
+export function HomeRoute ({ resources }) {
+  const { lang } = useParams()
+
   return (
     <>
       <PageHeading text='Welcome' />
@@ -14,12 +31,12 @@ export function HomeRoute ({ docTypes, fieldTypes }) {
         Choose a document type below to see the schema of the associated documents and guidance on how to interact with them.
       </Para>
       <GroupedLinksView links={[{ category: 'General', title: 'Customer', url: 'doc-types/customer' }]} />
-      <VSpacer size={1} />
       <Heading text='Field Types' />
       <Para>
         Each document is made up of fields.  Each field is given a type that governs which values are valid for that field.
       </Para>
-      <GroupedLinksView links={fieldTypes.map(ft => ({ category: ft.category, title: ft.title, url: `/field-types/${ft.name}` }))} />
+      {resources.categories.sort((a, b) => a.order - b.order).map(c =>
+        <CategorySection key={c.name} resources={resources} categoryName={c.name} lang={lang} />)}
     </>
   )
 }

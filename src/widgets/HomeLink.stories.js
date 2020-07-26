@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 import { HomeLink } from './HomeLink'
 
 export default {
@@ -6,5 +7,5 @@ export default {
   component: HomeLink
 }
 
-export const withText = () => <HomeLink homeUrl='/' serviceName='Example Data Service' serviceVersion='1.2.3' />
-export const withUndefined = () => <HomeLink />
+export const withText = () => <BrowserRouter><HomeLink homeUrl='/' serviceName='Example Data Service' serviceVersion='1.2.3' /></BrowserRouter>
+export const withUndefined = () => <BrowserRouter><HomeLink /></BrowserRouter>

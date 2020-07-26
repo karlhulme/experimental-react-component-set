@@ -1,5 +1,6 @@
 {
   "name": "jsonotron-react-components",
+  "description": "A library of React components that can be used to build a documentation site for the documents and fields of a Jsonotron-based data service.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,7 +8,8 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "json-view-for-react": "^1.1.2",
-    "jsonotron-builtin-field-types": "^1.1.2",
+    "jsonotron-builtin-field-types": "^3.0.2",
+    "jsonotron-builtin-field-types-docs-en": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
