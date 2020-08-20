@@ -1,0 +1,9 @@
+
+
+/* specialised CSS  - what's the right name for this? */
+
+.layout-columns-right > .surfaces-panel-wrapper {
+  position: sticky;
+  top: 4rem;
+  @media (min-width: $device-width-desktop) { top: 2rem; }
+}

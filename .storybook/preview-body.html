@@ -1,24 +1,31 @@
 <style>
+  /* 
+     The home for styles that will apply only to the Storybook rendering. 
+     We include the normalization here explicitly as this is a very aggressive
+     style and placing it here allows storybook to prevent it from affecting
+     the StoryBook manager UI. 
+  */
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   } 
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-size: 17px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #333;
-    border: 5px solid lightslategray;
+  .surfaces-paper {
+    border: 5px solid transparent;
   }
 
-  a {
-    color: #333;
-    text-decoration: none;
+  .surfaces-paper:hover {
+    border: 5px solid lightgray;
   }
-  </style>
+</style>
+
+<!--
+  This is the root that will be used to render the content for the UI components.
+  It is referenced above to provide a wrapper so we can check
+  that components are not supplying any additional margin/padding.
+  The .surfaces-paper class is used by the main application CSS to set the initial
+  font family, font size, background-color, text color and anti-aliasing values.
+-->
+<div id="root" class="surfaces-paper"></div>

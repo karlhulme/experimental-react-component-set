@@ -1,0 +1,58 @@
+.text-block-quote {
+  position: relative;
+  margin-left: var(--gap-medium);
+  padding-left: var(--gap-small);
+  font-style: italic;
+  border-left: var(--block-quote-edge-thickness) solid var(--grey);
+  @media (min-width: $device-width-tablet) { margin-left: var(--gap-large); padding-left: var(--gap-medium); }
+}
+
+.text-code {
+  color: var(--ink-bright-lm);
+  font-family: var(--font-family-monospace);
+}
+.surfaces-dark-mode .text-code { color: var(--ink-bright-dm); }
+
+.text-del { text-decoration: line-through; }
+
+.text-divider {
+  border: none;
+  background-color: var(--ink-pale-lm); /* this is the color of the rule */
+  height: var(--divider-thickness);
+}
+.app-dark-mode .text-divider { background-color: var(--ink-pale-dm); }
+
+.text-em { font-style: italic; }
+
+.text-keyword {
+  color: var(--ink-bright-lm);
+  font-size: 0.9rem;
+  font-family: var(--font-family-monospace);
+  border: var(--border-thickness) solid var(--ink-plain-lm);
+  padding: var(--border-thickness);
+}
+.surfaces-dark-mode .text-keyword { color: var(--ink-bright-dm); border-color: var(--ink-plain-dm); }
+
+.text-link {
+  color: var(--link-lm);
+  text-decoration: none;
+}
+.text-link-external::after { content: ' ↗'; }
+.surfaces-dark-mode .text-link { color: var(--link-dm); }
+
+.text-list {
+  list-style-type: disc;
+  list-style-position: inside;
+  padding-left: var(--gap-medium);
+}
+.text-list-ordered { list-style-type: decimal; }
+
+.text-para {
+  line-height: 1.3rem;
+}
+
+.text-pre {
+  white-space: pre-wrap;
+}
+
+.text-strong { font-weight: 800; }

@@ -1,8 +1,6 @@
 # Jsonotron React Components
 
-A collection of react components for constructing API documentation for your configured Jsonotron engine.
-
-Mulit-language is supported.
+A collection of react components for constructing API documentation based on the jsonotron type system.
 
 ## Scripts
 

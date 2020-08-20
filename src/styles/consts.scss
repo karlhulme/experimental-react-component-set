@@ -1,0 +1,59 @@
+/* SCSS device width variables */
+$device-width-tablet: 800px;
+$device-width-desktop: 1150px;
+$device-width-widescreen: 1400px;
+
+/* CSS variables */
+:root {
+  /* font */
+  --font-family-root: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-family-monospace: 'Lucida Console', Monaco, monospace;
+  --font-size-root: 17px;
+
+  /* canvas */
+  --canvas-lm: #fff; --canvas-dm: #001;
+  --canvas-segment-head-lm: #bbb; --canvas-segment-head-dm: #444;
+  --canvas-segment-body-lm: #ddd; --canvas-segment-body-dm: #222;
+
+  /* ink */
+  --ink-bright-lm: #222; --ink-bright-dm: #eee;
+  --ink-plain-lm: #444; --ink-plain-dm: #ccc;
+  --ink-pale-lm: #aaa; --ink-pale-dm: #888;
+
+  /* links */
+  --link-lm: #00f; --link-dm: #89e;
+
+  /* colors that adjust for light and dark mode */
+  --highlight-lm: rgba(255, 255, 255, 0.5); --highlight-dm: rgba(255, 255, 255, 0.5);
+  --green-lm: rgb(0, 97, 84); --green-dm: rgb(136, 198, 190);
+  --purple-lm: rgb(140, 0, 233); --purple-dm: rgb(249, 162, 252);
+  --red-lm: rgb(185, 0, 0); --red-dm: rgb(255, 110, 110);
+  --blue-lm: rgb(0, 66, 133); --blue-dm: rgb(121, 182, 242);
+  --brown-lm: rgb(82, 34, 0); --brown-dm: rgb(238, 159, 0);
+
+  /* colors that work in both light and dark mode if used as a fill */
+  --brown: #630;
+  --red: #800;
+  --pink: #f7b;
+  --green: #050;
+  --grey: #666;
+  --white: #eee;
+
+  /* gaps */
+  --gap-tiny: 0.25rem;
+  --gap-small: 0.5rem;
+  --gap-medium: 1rem;
+  --gap-large: 2rem;
+  --gap-huge: 4rem;
+
+  /* edging */
+  --divider-thickness: 1px;
+  --border-thickness: 1px;
+  --corner-radius: 5px;
+  --box-edge-thickness: 0.5rem;
+  --block-quote-edge-thickness: 0.5rem;
+
+  /* menu sizing */
+  --menu-topbar-height: 2rem;
+  --menu-sidebar-width: 12rem;
+}

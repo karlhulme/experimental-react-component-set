@@ -1,0 +1,61 @@
+.text-title {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--ink-bright-lm);
+  @media (min-width: $device-width-tablet) { font-size: 3rem; }
+  @media (min-width: $device-width-desktop) { font-size: 4rem; }
+  @media (min-width: $device-width-widescreen) { font-size: 5rem; }
+}
+.surfaces-dark-mode .text-title { color: var(--ink-bright-dm); }
+
+.text-abstract {
+  font-weight: 200;
+  line-height: 1.2em;
+  font-size: 1.4rem;
+  color: var(--ink-bright-lm);
+  @media (min-width: $device-width-tablet) { font-size: 1.7rem; }
+  @media (min-width: $device-width-desktop) { font-size: 2.1rem; }
+  @media (min-width: $device-width-widescreen) { font-size: 2.5rem; }
+}
+.surfaces-dark-mode .text-abstract { color: var(--ink-bright-dm); }
+
+.text-heading {
+  font-weight: 700;
+  margin-top: var(--gap-large);
+  font-size: 1.2rem;
+  color: var(--ink-bright-lm);
+  @media (min-width: $device-width-tablet) { font-size: 1.4rem; }
+  @media (min-width: $device-width-desktop) { font-size: 1.8rem; }
+  @media (min-width: $device-width-widescreen) { font-size: 2rem; }
+}
+.text-heading:first-child { margin-top: 0; }
+.surfaces-dark-mode .text-heading { color: var(--ink-bright-dm); }
+
+
+.text-sub-heading {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--ink-bright-lm);
+  @media (min-width: $device-width-tablet) { font-size: 1.15rem; }
+  @media (min-width: $device-width-desktop) { font-size: 1.25rem; }
+  @media (min-width: $device-width-widescreen) { font-size: 1.35rem; }
+}
+.surfaces-dark-mode .text-sub-heading { color: var(--ink-bright-dm); }
+
+.text-minor-heading {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--ink-bright-lm);
+  @media (min-width: $device-width-tablet) { font-size: 1.1rem; }
+  @media (min-width: $device-width-desktop) { font-size: 1.2rem; }
+  @media (min-width: $device-width-widescreen) { font-size: 1.3rem; }
+}
+.surfaces-dark-mode .text-minor-heading { color: var(--ink-bright-dm); }
+
+.text-code-heading {
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: var(--font-family-monospace);
+  color: var(--ink-bright-lm);
+}
+.surfaces-dark-mode .text-code-heading { color: var(--ink-bright-dm); }

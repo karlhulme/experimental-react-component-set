@@ -1,0 +1,11 @@
+.menus-main-menu {
+  background-color: var(--canvas-segment-body-lm);
+  color: var(--ink-bright-lm);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--gap-small);
+}
+.surfaces-dark-mode .menus-main-menu { background-color: var(--canvas-segment-body-dm); color: var(--ink-bright-dm); }

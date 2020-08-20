@@ -1,0 +1,23 @@
+.visuals-http-verb {
+  display: inline-block;
+  min-width: 5rem;
+  text-align: right;
+  padding-right: var(--gap-small);
+  color: var(--pink);
+  font-family: var(--font-family-monospace);
+}
+
+.visuals-http-verb-get { color: var(--green-lm); }
+.surfaces-dark-mode .visuals-http-verb-get { color: var(--green-dm); }
+
+.visuals-http-verb-post { color: var(--purple-lm); }
+.surfaces-dark-mode .visuals-http-verb-post { color: var(--purple-dm); }
+
+.visuals-http-verb-patch { color: var(--blue-lm); }
+.surfaces-dark-mode .visuals-http-verb-patch { color: var(--blue-dm); }
+
+.visuals-http-verb-delete { color: var(--red-lm); }
+.surfaces-dark-mode .visuals-http-verb-delete { color: var(--red-dm); }
+
+.visuals-http-verb-put { color: var(--brown-lm); }
+.surfaces-dark-mode .visuals-http-verb-put { color: var(--brown-dm); }

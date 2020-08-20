@@ -1,0 +1,16 @@
+.table-wrapper {
+  border-collapse: collapse;
+}
+
+.table-row {
+  border-bottom: var(--border-thickness) solid var(--ink-pale-lm);
+}
+.surfaces-dark-mode .table-row { border-bottom-color: var(--ink-pale-dm); }
+.table-row:last-child { border-bottom-color: var(--ink-plain-lm); }
+.surfaces-dark-mode .table-row:last-child { border-bottom-color: var(--ink-plain-dm); }
+
+.table-cell {
+  padding: var(--gap-small);
+}
+.table-cell.table-cell-header { text-align: left; }
+

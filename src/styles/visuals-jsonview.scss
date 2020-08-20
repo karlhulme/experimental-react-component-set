@@ -1,0 +1,36 @@
+.visuals-jsonview-code {
+  display: block;
+  color: var(--brown-lm);
+  overflow-x: scroll;
+  font-size: 0.9rem;
+}
+.surfaces-dark-mode .visuals-jsonview-code { color:var(--brown-dm); }
+
+.visuals-jsonview-line { white-space: nowrap; }
+
+.visuals-jsonview-hi-line { white-space: nowrap; background-color: var(--highlight-lm); }
+.surfaces-dark-mode .visuals-jsonview-hi-line { background-color: var(--highlight-dm); }
+
+.visuals-jsonview-str { color: var(--green-lm); }
+.surfaces-dark-mode .visuals-jsonview-str { color: var(--green-dm); }
+
+.visuals-jsonview-num { color: var(--purple-lm); }
+.surfaces-dark-mode .visuals-jsonview-num { color: var(--purple-dm); }
+
+.visuals-jsonview-bool { color: var(--red-lm); }
+.surfaces-dark-mode .visuals-jsonview-bool { color: var(--red-dm); }
+
+.visuals-jsonview-null { color: var(--red-lm); }
+.surfaces-dark-mode .visuals-jsonview-null { color: var(--red-dm); }
+
+.visuals-jsonview-prop { color: var(--blue-lm); }
+.surfaces-dark-mode .visuals-jsonview-prop { color: var(--blue-dm); }
+
+.visuals-jsonview-ln {
+  display: inline-block;
+  padding-right: 1rem;
+  color: var(--ink-pale-lm);
+  text-align: right;
+  user-select: none;
+}
+.surfaces-dark-mode .visuals-jsonview-ln { color: var(--ink-pale-dm); }

@@ -1,0 +1,72 @@
+/* Box */
+
+.surfaces-box {
+  display: block;
+  background-color: var(--canvas-segment-body-lm);
+  color: var(--ink-bright-lm);
+  padding: var(--gap-small) var(--gap-medium);
+  border-left: var(--box-edge-thickness) solid var(--pink);
+}
+.surfaces-dark-mode .surfaces-box { background-color: var(--canvas-segment-body-dm); color: var(--ink-bright-dm) };
+
+.surfaces-box-alert { border-left-color: var(--red); }
+.surfaces-box-hint { border-left-color: var(--yellow) }
+.surfaces-box-system { border-left-color: var(--grey) }
+
+/* Dark Mode */
+
+.surfaces-dark-mode {
+  color: var(--ink-plain-dm); 
+}
+
+/* Panel */
+
+.surfaces-panel-wrapper {
+  font-size: 0.9rem;
+}
+
+.surfaces-panel-header {
+  padding: var(--gap-medium);
+  background-color: var(--canvas-segment-head-lm);
+  border-top-left-radius: var(--corner-radius);
+  border-top-right-radius: var(--corner-radius);
+}
+.surfaces-dark-mode .surfaces-panel-header { background-color: var(--canvas-segment-head-dm); }
+
+.surfaces-panel-section {
+  padding: var(--gap-medium);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: var(--canvas-segment-body-lm);
+  border: var(--border-thickness) solid var(--canvas-segment-head-lm);
+  border-top-width: none;
+}
+.surfaces-dark-mode .surfaces-panel-section { background-color: var(--canvas-segment-body-dm); border-color: var(--canvas-segment-head-dm ); }
+.surfaces-panel-section:first-child {
+  border-top: var(--border-thickness) solid var(--canvas-segment-head-lm);
+  border-top-left-radius: var(--corner-radius);
+  border-top-right-radius: var(--corner-radius);
+}
+.surfaces-panel-section:last-child {
+  border-bottom-left-radius: var(--corner-radius);
+  border-bottom-right-radius: var(--corner-radius);
+}
+.surfaces-dark-mode .surfaces-panel-section:first-child { border-color: var(--canvas-segment-head-dm ); }
+
+/* Paper */
+
+.surfaces-paper {
+  font-family: var(--font-family-root);
+  font-size: var(--font-size-root);
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--canvas-lm);
+  color: var(--ink-plain-lm);
+}
+.surfaces-dark-mode .surfaces-paper {
+  background-color: var(--canvas-dm);
+  color: var(--ink-plain-dm);
+}
