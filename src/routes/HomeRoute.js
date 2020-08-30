@@ -1,28 +1,7 @@
 import React from 'react'
-import { Abstract, Heading, Link, List, Para, PrimaryScaffold, SubHeading, Title } from '../widgets'
+import { Abstract, Heading, Link, List, Para, PrimaryScaffold, Title } from '../widgets'
 
-function CategorySection ({ categoryType, enumTypes, fieldTypes }) {
-  const fieldTypesInCategory = fieldTypes.filter(f => f.category === categoryType.name)
-  const enumTypesInCategory = enumTypes.filter(e => e.category === categoryType.name)
-
-  const fieldLinks = fieldTypesInCategory.map(f =>
-    ({ title: f.title, url: `/field-types/${f.name}` }))
-
-  const enumLinks = enumTypesInCategory.map(e =>
-    ({ title: e.title, url: `/enum-types/${e.name}` }))
-
-  return (
-    <>
-      <SubHeading>{categoryType.title}</SubHeading>
-      <List>
-        {fieldLinks.concat(enumLinks).map((link, index) =>
-          <List.Item key={index}><Link to={link.url}>{link.title}</Link></List.Item>)}
-      </List>
-    </>
-  )
-}
-
-export function HomeRoute ({ categoryTypes, docTypes, enumTypes, fieldTypes, darkMode, setDarkMode }) {
+export function HomeRoute ({ docTypes, enumTypes, fieldTypes, darkMode, setDarkMode }) {
   return (
     <PrimaryScaffold darkMode={darkMode} setDarkMode={setDarkMode}>
       <Title>Welcome</Title>
@@ -40,11 +19,15 @@ export function HomeRoute ({ categoryTypes, docTypes, enumTypes, fieldTypes, dar
           <List.Item key={d.name}><Link to={`/doc-types/${d.name}`}>{d.title}</Link></List.Item>)}
       </List>
       <Heading>Field Types</Heading>
-      <Para>
-        Each document is made up of fields.  Each field is given a type that governs which values are valid for that field.
-      </Para>
-      {categoryTypes.sort((a, b) => a.order - b.order).map(c =>
-        <CategorySection key={c.name} categoryType={c} enumTypes={enumTypes} fieldTypes={fieldTypes} />)}
+      <List>
+        {fieldTypes.sort((a, b) => a.title.localeCompare(b.title)).map(f =>
+          <List.Item key={f.name}><Link to={`/field-types/${f.name}`}>{f.title}</Link></List.Item>)}
+      </List>
+      <Heading>Enum Types</Heading>
+      <List>
+        {enumTypes.sort((a, b) => a.title.localeCompare(b.title)).map(e =>
+          <List.Item key={e.name}><Link to={`/field-types/${e.name}`}>{e.title}</Link></List.Item>)}
+      </List>
     </PrimaryScaffold>
   )
 }

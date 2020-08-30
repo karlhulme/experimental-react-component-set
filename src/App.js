@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { builtinCategoryTypes, builtinEnumTypes, builtinFieldTypes } from 'jsonotron-builtin-field-types'
+import { builtinEnumTypes, builtinFieldTypes } from 'jsonotron-builtin-field-types'
 import { exampleDocTypes } from 'jsonotron-example-doc-types'
 import { HomeRoute, DocTypeRoute, EnumTypeRoute, FieldTypeRoute } from './routes'
 
@@ -10,7 +10,6 @@ import './styles/index.scss'
 export default function App () {
   const [darkMode, setDarkMode] = useState(false)
 
-  const categoryTypes = builtinCategoryTypes
   const enumTypes = builtinEnumTypes
   const fieldTypes = builtinFieldTypes
   const docTypes = exampleDocTypes
@@ -22,7 +21,6 @@ export default function App () {
           <HomeRoute
             darkMode={darkMode}
             setDarkMode={setDarkMode}
-            categoryTypes={categoryTypes}
             enumTypes={enumTypes}
             fieldTypes={fieldTypes}
             docTypes={docTypes}
